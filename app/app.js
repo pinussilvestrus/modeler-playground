@@ -2,7 +2,7 @@ import $ from 'jquery';
 
 import BpmnModeler from 'bpmn-js/lib/Modeler';
 
-import customRuleModules from './rules';
+import customRuleModules from './custom-rules';
 
 import diagramXML from '../resources/newDiagram.bpmn';
 
