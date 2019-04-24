@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn2:category id="sid-07242b42-d1e6-4bb4-a909-c01b67e55fd2">
+    <bpmn2:categoryValue id="sid-19b29933-7fee-4cc8-b4ad-0e2749f5024d" value="my first group" />
+  </bpmn2:category>
+  <bpmn2:category id="sid-07242b42-d1e6-4bb4-a909-c01b67e55fd1">
+    <bpmn2:categoryValue id="sid-19b29933-7fee-4cc8-b4ad-0e2749f5024f" value="my second group" />
+  </bpmn2:category>
   <bpmn2:process id="Process_1" isExecutable="false">
     <bpmn2:startEvent id="StartEvent_1"/>
+    <bpmn2:group id="sid-6E00D55B-26A5-42C3-A2C7-B76521395632" categoryValueRef="sid-19b29933-7fee-4cc8-b4ad-0e2749f5024d" />
   </bpmn2:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="Group-sid-6E00D55B-26A5-42C3-A2C7-B76521395632" bpmnElement="sid-6E00D55B-26A5-42C3-A2C7-B76521395632">
+        <dc:Bounds x="800" y="101" width="350" height="400" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="276" y="98" width="58" height="18.96" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds height="36.0" width="36.0" x="412.0" y="240.0"/>
       </bpmndi:BPMNShape>

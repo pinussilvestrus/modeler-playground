@@ -38,8 +38,9 @@
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
-    "bpmn-js": "^3.3.1",
+    "bpmn-js": "/Users/niklas.kiefer/GitHub/bpmn-js",
     "diagram-js": "^3.0.1",
+    "diagram-js-frame-outline": "/Users/niklas.kiefer/diagram-js-frame-outline",
     "jquery": "^3.3.1"
   }
 }
