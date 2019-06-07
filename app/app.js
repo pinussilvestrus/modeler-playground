@@ -4,7 +4,9 @@ import BpmnModeler from 'bpmn-js/lib/Modeler';
 
 import customRuleModules from './custom-rules';
 
-import frameOutlineModule from 'diagram-js-frame-outline';
+// import frameOutlineModule from 'diagram-js-frame-outline';
+
+import cursorDebugModule from 'diagram-js-cursor-debug';
 
 import diagramXML from '../resources/newDiagram.bpmn';
 
@@ -12,9 +14,13 @@ var container = $('#js-drop-zone');
 
 var modeler = new BpmnModeler({
   container: '#js-canvas',
+  keyboard: {
+    bindTo: document
+  },
   additionalModules: [
     customRuleModules,
-    frameOutlineModule
+    //frameOutlineModule,
+    cursorDebugModule
   ]
 });
 
