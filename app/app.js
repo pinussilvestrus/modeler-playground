@@ -152,6 +152,17 @@ $(function() {
   }, 500);
 
   modeler.on('commandStack.changed', exportArtifacts);
+
+  var eventBus = modeler.get('eventBus');
+
+  eventBus.on('element.dblclick', 10000, function(context) {
+    var element = context.element,
+      businessObject = element.businessObject;
+  
+    if (businessObject.name === 'aaaa') {
+      return false; // will cancel event
+    }
+  });
 });
 
 
