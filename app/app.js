@@ -4,6 +4,8 @@ import BpmnModeler from 'bpmn-js/lib/Modeler';
 
 import customRuleModules from './custom-rules';
 
+import readOnlyModule from './readOnly';
+
 // import frameOutlineModule from 'diagram-js-frame-outline';
 
 import cursorDebugModule from 'diagram-js-cursor-debug';
@@ -18,11 +20,14 @@ var modeler = new BpmnModeler({
     bindTo: document
   },
   additionalModules: [
-    customRuleModules,
+    //customRuleModules,
     //frameOutlineModule,
     cursorDebugModule
+    //readOnlyModule
   ]
 });
+
+var eventBus = modeler.get('eventBus');
 
 function createNewDiagram() {
   openDiagram(diagramXML);
@@ -45,6 +50,18 @@ function openDiagram(xml) {
         .removeClass('with-error')
         .addClass('with-diagram');
     }
+
+    eventBus.on('drag.start', function(event) {
+      console.log('dragging start');
+    });
+
+    eventBus.on('drag.init', function(event) {
+      console.log('dragging init');
+    });
+
+    eventBus.on('drag.end', function(event) {
+      console.log('dragging end');
+    });
 
 
   });
