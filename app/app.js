@@ -64,7 +64,30 @@ function openDiagram(xml) {
     });
 
 
+    //createParticipant();
+
   });
+
+}
+
+function createParticipant() {
+  var elementFactory = modeler.get('elementFactory'),
+    modeling = modeler.get('modeling'),
+    canvas = modeler.get('canvas');
+
+  var parent = canvas.getRootElement(),
+    participant1 = elementFactory.createParticipantShape(),
+    participant2 = elementFactory.createParticipantShape();
+
+  participant1.businessObject.name = 'A';
+  participant2.businessObject.name =  'B';
+
+  modeling.createShape(participant1, { x: 350, y: 200 }, parent);
+
+  // turned into collaboration
+  parent = canvas.getRootElement();
+
+  modeling.createShape(participant2, { x: 350, y: 500 }, parent);
 }
 
 function saveSVG(done) {
