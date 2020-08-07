@@ -2,9 +2,17 @@ import $ from 'jquery';
 
 import BpmnModeler from 'bpmn-js/lib/Modeler';
 
+import CamundaBpmnModdle from "camunda-bpmn-moddle/resources/camunda.json";
+
+import {
+  getBusinessObject,
+} from 'bpmn-js/lib/util/ModelUtil';
+
 import customRuleModules from './custom-rules';
 
 import readOnlyModule from './readOnly';
+
+import extractVariablesExampleModule from './extract-variables-example';
 
 // import frameOutlineModule from 'diagram-js-frame-outline';
 
@@ -22,9 +30,14 @@ var modeler = new BpmnModeler({
   additionalModules: [
     //customRuleModules,
     //frameOutlineModule,
-    cursorDebugModule
+    // cursorDebugModule,
+    extractVariablesExampleModule
     //readOnlyModule
-  ]
+
+  ],
+  moddleExtensions: {
+    camunda: CamundaBpmnModdle
+  }
 });
 
 var eventBus = modeler.get('eventBus');
@@ -63,8 +76,27 @@ function openDiagram(xml) {
       console.log('dragging end');
     });
 
+    var canvas = modeler.get('canvas'),
+        moddle = modeler.get('moddle'),
+        modeling = modeler.get('modeling'),
+        extractVariablesExample = modeler.get('extractVariablesExample'),
+        elementRegistry = modeler.get('elementRegistry'),
+        overlays = modeler.get('overlays'),
+        connector = moddle.create('bpmn:Event'),
+        definitions = modeler.getDefinitions(),
+        extensionElements = moddle.create('bpmn:ExtensionElements');
+    
+      // extensionElements.$parent = definitions;
+      // extensionElements.values = [ connector ];
 
-    //createParticipant();
+      // overlays.add('StartEvent_1', { html: (<div>Test</div >), position: {top: 0} })
+
+      // canvas.removeShape(elementRegistry.get('Group'))
+      // // modeling.removeShape(elementRegistry.get('Group'));
+
+      // definitions.extensionElements = extensionElements;
+
+      extractVariablesExample.getVariables();
 
   });
 
